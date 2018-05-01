@@ -1,2 +1,4 @@
 name: Mash Nagesh
 markdown: kramdown
+
+permalink: /blog/:year/:month/:day/:title
