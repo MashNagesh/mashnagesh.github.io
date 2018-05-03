@@ -53,15 +53,35 @@ The influence of Wout(1,1) on the Error is depicted below
 
 ![Network4](/images/NN-Step4.png){:class="img-responsive"} 
 
-$$\partial E/\partial W_{out(1,1)}$$ $$= \partial E / \partial o1_{output} * \partial o1_{output} / \partial o1_{input} * \partial o1_{input} /\partial W_{out(1,1)} $$ $$ = o1_{output}-o * o1_{output}*(1-o1_{output})*h1_{output}$$ $$ = (0.606-1) * 0.606 *(1-0.606) *0.507 $$ $$ = 0.0476$$ 
+$$\partial E/\partial W_{out(1,1)}$$ $$= \partial E / \partial o1_{output} * \partial o1_{output} / \partial o1_{input} * \partial o1_{input} /\partial W_{out(1,1)} $$ $$ = (o1_{output}-o) * o1_{output}*(1-o1_{output})*h1_{output}$$ $$ = (0.606-1) * 0.606 *(1-0.606) *0.507 $$ $$ = -0.0476$$ 
 
 Similarly the influence of Wh(1,1) on the Error is as follows
-$$\partial E/\partial W_{h(1,1)}$$ $$= \partial E / \partial o1_{output} * \partial o1_{output} / \partial o1_{input} * \partial o1_{input} /\partial h1_{output} * \partial h1_{output}/\partial h1_{input} * \partial h1_{input}/\partial w_{h(1,1)} $$ $$
+$$\partial E/\partial W_{h(1,1)}$$ $$= \partial E / \partial o1_{output} * \partial o1_{output} / \partial o1_{input} * \partial o1_{input} /\partial h1_{output} * \partial h1_{output}/\partial h1_{input} * \partial h1_{input}/\partial w_{h(1,1)} $$ $$=(o1_{output}-o) *o1_{output}*(1-o1_{output})*W_{out(1,1)}*h1_{output}*(1-h1_{output})*i1$$ $$ = (0.606-1) * 0.606 *(1-0.606) * 0.4* 0.507*(1-0.507)*0.05 $$ $$ = -0.00047$$
 
-Learning rate is the rate at which we want the weights to be updated.For our working example 0.5 has been chosen as the learning rate.
-$$Wout = Wout - learningrate * \partial E/\partial W_{out(1,1)}$$
+{% highlight python%}
+#Back Propagation
+delta_output = (Etotal * der_sigmoid(out_layer_output)
+pd_output = delta_output* hidden_layer_output.T
+delta_hidden = delta_output*wout*der_sigmoid(hidden_layer_output)
+pd_hidden = delta_hidden* i.T
+{% endhighlight%}
 
+Learning rate is the rate at which we want the weights to be updated.For our working example 0.5(lr) has been chosen as the learning rate.The weights should be update after calculating the pd_output and pd_hidden since wout value (prior to  updation) is used in calculating pd_hidden.
+$$W_{out(1,1)} = W_{out(1,1)}- lr * \partial E/\partial W_{out(1,1)}$$
+$$=0.4 - (0.5*-0.0476) $$ $$=0.4238 $$
 
+Similarly
+$$W_{h(1,1)} = W_{h(1,1)}- lr * \partial E/\partial W_{h(1,1)}$$
+$$=0.15 - (0.5*-0.00047) $$ $$=0.1502 $$
 
+{% highlight python%}
+#Weight update
+wout = wout - (lr*pd_output)
+wh = wh - (lr*pd_hidden)
+{% endhighlight%}
+
+The above steps complete 1 epoch (A complete pass of forward and back propagation).The weights are updated based on the choice of Epoch and every update moves the weights towards minimising the error.
+
+[Link to the entire code](https://github.com/MashNagesh/NeuralNetwork/blob/master/NN_trial_Single_class.ipynb)
 
 
