@@ -38,3 +38,6 @@ hidden_layer_output = sigmoid(hidden_layer_input) #returns h1_output and h2_outp
 out_layer_input = np.dot(hidden_layer_output,wout)  # returns o1_input
 out_layer_output = sigmoid(out_layer_input) #returns o1_output
 {% endhighlight%}
+
+After the First Forward Pass the Error from the system is as below
+$$Error = \1/2 *\(o - out_layer_output)^2$$ = (1-0.606) = 0.394
