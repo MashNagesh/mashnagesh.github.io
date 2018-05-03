@@ -8,7 +8,7 @@ Neural Network is one of the ways to make a machine learn from data and is a typ
     A simple neural network is illustrated below along with snippets of Python code.
   
   NEURAL NETWORK INITIALIZATION
-  ![]({{ site.url }}/images/NN-Step1.png)
+  ![stack Overflow](http://lmsotfy.com/so.png)
   
   ```Python
 #Initialising variables
