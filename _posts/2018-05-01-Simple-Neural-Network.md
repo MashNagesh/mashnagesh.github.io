@@ -41,7 +41,7 @@ out_layer_output = sigmoid(out_layer_input) #returns o1_output
 
 Error (E) is defined as
 
-$$Error = 1/2 *(o - o1_{_output})^2$$
+$$Error = 1/2 *(o - o1_{output})^2$$
 
 After the First Forward Pass the Error from the system is $ = (1-0.606) = 0.394$
 
@@ -50,7 +50,7 @@ The objective of back propagation is to  find out the proportion to which each o
 
 For example the influence of Wout(1,1) on the Error is
 
-$$\partial E/\partial W_{out(1,1)} = \partial E / \partial o1_{_output} * \partial o1_{_output} / \partial o1_{_input} * \partial o1_{_input} /\partial W_{out(1,1)} $$ $$ = o1_{_output}-o * o1_{_output}*(1-o1_{_output})*h1_output$$ $$ = (0.606-1) * 0.606 *(1-0.606) *0.507 $$ = 0.0476$$
+$$\partial E/\partial W_{out(1,1)} = \partial E / \partial o1_{output} * \partial o1_{output} / \partial o1_{input} * \partial o1_{input} /\partial W_{out(1,1)} $$ $$ = o1_{output}-o * o1_{output}*(1-o1_{output})*h1_output$$ $$ = (0.606-1) * 0.606 *(1-0.606) *0.507 $$ = 0.0476$$
 
 
 
