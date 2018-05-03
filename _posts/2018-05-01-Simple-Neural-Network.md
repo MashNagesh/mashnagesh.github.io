@@ -67,7 +67,9 @@ pd_hidden = delta_hidden* i.T
 {% endhighlight%}
 
 Learning rate is the rate at which we want the weights to be updated.For our working example 0.5(lr) has been chosen as the learning rate.The weights should be update after calculating the pd_output and pd_hidden since wout value (prior to  updation) is used in calculating pd_hidden.
+
 $$W_{out(1,1)} = W_{out(1,1)}- lr * \partial E/\partial W_{out(1,1)}$$
+
 $$=0.4 - (0.5*-0.0476) $$ $$=0.4238 $$
 
 Similarly
@@ -80,8 +82,8 @@ wout = wout - (lr*pd_output)
 wh = wh - (lr*pd_hidden)
 {% endhighlight%}
 
-The above steps complete 1 epoch (A complete pass of forward and back propagation).The weights are updated based on the choice of Epoch and every update moves the weights towards minimising the error.
+The above steps complete an epoch (A complete pass of forward and back propagation).The weights are updated based on the choice of epoch and every update moves the weights towards minimising the error.
 
-[Link to the entire code](https://github.com/MashNagesh/NeuralNetwork/blob/master/NN_trial_Single_class.ipynb)
+[Jupyter notebook Link](https://github.com/MashNagesh/NeuralNetwork/blob/master/NN_trial_Single_class.ipynb)
 
 
