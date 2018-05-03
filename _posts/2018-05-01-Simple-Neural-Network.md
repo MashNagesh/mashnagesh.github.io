@@ -43,4 +43,4 @@ After the First Forward Pass the Error from the system is as below
 
 $$Error = 1/2 *(o - o1output)^2$$ 
 
-= (1-0.606) = 0.394
+$= (1-0.606) = 0.394$
