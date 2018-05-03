@@ -9,7 +9,7 @@ Neural Network is one of the ways to make a machine learn from data and is a typ
   
 NEURAL NETWORK INITIALIZATION
 
-![Network](/images/NN-Step1.png){:class="img-responsive"}  
+![Network1](/images/NN-Step1.png){:class="img-responsive"}  
 
 {% highlight python%}
 #Initialising variables
@@ -19,4 +19,21 @@ output_neurons = 1
 hidden_neurons = 2
 wh= np.array ([[0.15,0.25],[0.2,0.3]]) # 2 x 2  matrix  - number of input features x number of hidden nodes
 wout=np.array([[0.40],[0.45]]) # 2  x 1 - number of hidden nodes x number of output nodes
+{% endhighlight%}
+
+FORWARD PASS
+![Network1](/images/NN-Step2.png){:class="img-responsive"}  
+
+{% highlight python%}
+#Hidden Layer Forward Pass
+hidden_layer_input = np.dot(i,wh)
+hidden_layer_output = sigmoid(hidden_layer_input)
+{% endhighlight%}
+
+![Network2](/images/NN-Step3.png){:class="img-responsive"}  
+
+{% highlight python%}
+#Hidden Layer Forward Pass
+hidden_layer_input = np.dot(i,wh)
+hidden_layer_output = sigmoid(hidden_layer_input)
 {% endhighlight%}
