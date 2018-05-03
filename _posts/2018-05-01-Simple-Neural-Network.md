@@ -22,7 +22,7 @@ wout=np.array([[0.40],[0.45]]) # 2  x 1 - number of hidden nodes x number of out
 {% endhighlight%}
 
 FORWARD PASS
-![Network1](/images/NN-Step2.png){:class="img-responsive"}  
+![Network2](/images/NN-Step2.png){:class="img-responsive"}  
 
 {% highlight python%}
 #Hidden Layer Forward Pass
@@ -31,7 +31,7 @@ hidden_layer_input = np.dot(i,wh) # returns h1_input and h2_input
 hidden_layer_output = sigmoid(hidden_layer_input) #returns h1_output and h2_output
 {% endhighlight%}
 
-![Network2](/images/NN-Step3.png){:class="img-responsive"}  
+![Network3](/images/NN-Step3.png){:class="img-responsive"}  
 
 {% highlight python%}
 #Output Layer Forward Pass
@@ -49,10 +49,15 @@ BACK PROPAGATION
 
 The objective of back propagation is to  find out the proportion to which each of the weights initialised have influenced the Error and adjust the weights so that the Error is minimised.The influence of each of the weights in arrays Wh and Wout can be found by taking the  partial derivative of Error w.r.t that weight element.
 
-For example the influence of Wout(1,1) on the Error is
+The influence of Wout(1,1) on the Error is depicted below
+
+![Network4](/images/NN-Step3.png){:class="img-responsive"} 
 
 $$\partial E/\partial W_{out(1,1)}$$ $$= \partial E / \partial o1_{output} * \partial o1_{output} / \partial o1_{input} * \partial o1_{input} /\partial W_{out(1,1)} $$ $$ = o1_{output}-o * o1_{output}*(1-o1_{output})*h1_{output}$$ $$ = (0.606-1) * 0.606 *(1-0.606) *0.507 $$ $$ = 0.0476$$ 
 
+The influence of Wh(1,1) on the Error is as follows
+
+Learning rate is the rate at which we want the weights to be updated.For our working example 0.5 has been chosen as the learning rate.
 $$Wout = Wout - learningrate * \partial E/\partial W_{out(1,1)}$$
 
 
