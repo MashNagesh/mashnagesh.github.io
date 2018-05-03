@@ -39,11 +39,18 @@ out_layer_input = np.dot(hidden_layer_output,wout)  # returns o1_input
 out_layer_output = sigmoid(out_layer_input) #returns o1_output
 {% endhighlight%}
 
-Error is defined as
+Error (E) is defined as
 
 $$Error = 1/2 *(o - o1_{_output})^2$$
 
 After the First Forward Pass the Error from the system is $ = (1-0.606) = 0.394$
+
+BACK PROPAGATION
+The objective of back propagation is to  find out the proportion to which each of the weights initialised have influenced the Error and adjust the weights so that the Error is minimised.The influence of each of the weights in arrays Wh and Wout can be found by taking the  partial derivative of Error w.r.t that weight element.
+
+For example the influence of Wout(1,1) on the Error is
+
+$$\partial E/\partial W_{out(1,1)} = \partial E / \partial o1_{_output} * \partial o1_{_output} / \partial o1_{_input} * \partial o1_{_input} /\partial W_{out(1,1)} $$ $$ = o1_{_output}-o * o1_{_output}*(1-o1_{_output})*h1_output$$ $$ = (0.606-1) * 0.606 *(1-0.606) *0.507 $$ = 0.0476$$
 
 
 
