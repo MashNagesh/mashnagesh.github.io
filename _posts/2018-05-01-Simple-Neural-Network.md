@@ -9,7 +9,7 @@ Neural Network is one of the ways to make a machine learn from data and is a typ
   
 NEURAL NETWORK INITIALIZATION
 
-![](images/NN-Step1.png)(:class="img-responsive"}  
+![](images/NN-Step1.png){:class="img-responsive"}  
 
   ```Jupyter Notebook
 #Initialising variables
