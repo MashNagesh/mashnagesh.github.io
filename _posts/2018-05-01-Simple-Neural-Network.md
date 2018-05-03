@@ -50,7 +50,7 @@ The objective of back propagation is to  find out the proportion to which each o
 
 For example the influence of Wout(1,1) on the Error is
 
-$$\partial E/\partial W_{out(1,1)} = \partial E / \partial o1_{output} * \partial o1_{output} / \partial o1_{input} * \partial o1_{input} /\partial W_{out(1,1)} $$ $$ = o1_{output}-o * o1_{output}*(1-o1_{output})*h1_output$$ $$ = (0.606-1) * 0.606 *(1-0.606) *0.507 $$ = 0.0476$$
+$$\partial E/\partial W_{out(1,1)}$$ $$= \partial E / \partial o1_{output} * \partial o1_{output} / \partial o1_{input} * \partial o1_{input} /\partial W_{out(1,1)} $$ $$ = o1_{output}-o * o1_{output}*(1-o1_{output})*h1_output$$ $$ = (0.606-1) * 0.606 *(1-0.606) *0.507 $$ = 0.0476$$
 
 
 
