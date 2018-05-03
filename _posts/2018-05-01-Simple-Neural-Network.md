@@ -26,14 +26,15 @@ FORWARD PASS
 
 {% highlight python%}
 #Hidden Layer Forward Pass
-hidden_layer_input = np.dot(i,wh)
-hidden_layer_output = sigmoid(hidden_layer_input)
+def sigmoid(x) :   return 1/(1+np.exp(-x))
+hidden_layer_input = np.dot(i,wh) # returns h1_input and h2_input
+hidden_layer_output = sigmoid(hidden_layer_input) #returns h1_output and h2_output
 {% endhighlight%}
 
 ![Network2](/images/NN-Step3.png){:class="img-responsive"}  
 
 {% highlight python%}
-#Hidden Layer Forward Pass
-hidden_layer_input = np.dot(i,wh)
-hidden_layer_output = sigmoid(hidden_layer_input)
+#Output Layer Forward Pass
+out_layer_input = np.dot(hidden_layer_output,wout)  # returns o1_input
+out_layer_output = sigmoid(out_layer_input) #returns o1_output
 {% endhighlight%}
