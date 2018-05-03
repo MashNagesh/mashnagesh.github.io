@@ -19,4 +19,4 @@ output_neurons = 1
 hidden_neurons = 2
 wh= np.array ([[0.15,0.25],[0.2,0.3]]) # 2 x 2  matrix  - number of input features x number of hidden nodes
 wout=np.array([[0.40],[0.45]]) # 2  x 1 - number of hidden nodes x number of output nodes
-{% endhighlight python%}
+{% endhighlight%}
