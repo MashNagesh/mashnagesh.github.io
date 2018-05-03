@@ -41,5 +41,6 @@ out_layer_output = sigmoid(out_layer_input) #returns o1_output
 
 After the First Forward Pass the Error from the system is as below
 
-$$Error = \1/2 *(o - o1output\\)^2$$ 
+$$Error = 1/2 *(o - o1output)^2$$ 
+
 = (1-0.606) = 0.394
