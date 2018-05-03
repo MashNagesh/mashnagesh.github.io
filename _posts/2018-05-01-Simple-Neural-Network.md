@@ -82,7 +82,7 @@ wout = wout - (lr*pd_output)
 wh = wh - (lr*pd_hidden)
 {% endhighlight%}
 
-The above steps complete an epoch (A complete pass of forward and back propagation).The weights are updated based on the choice of epoch and every update moves the weights towards minimising the error.
+The above steps complete an epoch (a complete pass of forward and back propagation).the complete code on network training based on pre-defined epoch is provided in the below link
 
 [Jupyter notebook Link](https://github.com/MashNagesh/NeuralNetwork/blob/master/NN_trial_Single_class.ipynb)
 
