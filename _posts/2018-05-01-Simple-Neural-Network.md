@@ -49,7 +49,7 @@ The objective of back propagation is to  find out the proportion to which each o
 
 The influence of Wout(1,1) on the Error is depicted below
 
-![Network4](/images/NN-Step4.png){:class="img-responsive"} 
+![Network4](/images/NN-Step5.png){:class="img-responsive"} 
 
 As per the chain rule we have  the below formula.
 $$\partial E/\partial W_{out(1,1)}$$ $$= \partial E / \partial o1_{output} * \partial o1_{output} / \partial o1_{input} * \partial o1_{input} /\partial W_{out(1,1)} $$ $$ = (o1_{output}-o) * o1_{output}*(1-o1_{output})*h1_{output}$$ $$ = (0.606-1) * 0.606 *(1-0.606) *0.507 $$ $$ = -0.0476$$ 
