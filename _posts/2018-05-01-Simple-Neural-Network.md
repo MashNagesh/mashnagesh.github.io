@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Simple Neural Networks- My Understanding"
+title: "Basic Neural Network"
 date: 2018-05-01
 ---
 
@@ -43,8 +43,6 @@ Error (E) is defined as
 
 $$Error = 1/2 *(o - o1_{output})^2$$
 
-After the First Forward Pass the Error from the system is $ = (1-0.606) = 0.394$
-
 BACK PROPAGATION
 
 The objective of back propagation is to  find out the proportion to which each of the weights initialised have influenced the Error and adjust the weights so that the Error is minimised.The influence of each of the weights in arrays Wh and Wout can be found by taking the  partial derivative of Error w.r.t that weight element.
@@ -53,20 +51,26 @@ The influence of Wout(1,1) on the Error is depicted below
 
 ![Network4](/images/NN-Step4.png){:class="img-responsive"} 
 
+As per the chain rule we have  the below formula.
 $$\partial E/\partial W_{out(1,1)}$$ $$= \partial E / \partial o1_{output} * \partial o1_{output} / \partial o1_{input} * \partial o1_{input} /\partial W_{out(1,1)} $$ $$ = (o1_{output}-o) * o1_{output}*(1-o1_{output})*h1_{output}$$ $$ = (0.606-1) * 0.606 *(1-0.606) *0.507 $$ $$ = -0.0476$$ 
+
 
 Similarly the influence of Wh(1,1) on the Error is as follows
 $$\partial E/\partial W_{h(1,1)}$$ $$= \partial E / \partial o1_{output} * \partial o1_{output} / \partial o1_{input} * \partial o1_{input} /\partial h1_{output} * \partial h1_{output}/\partial h1_{input} * \partial h1_{input}/\partial w_{h(1,1)} $$ $$=(o1_{output}-o) *o1_{output}*(1-o1_{output})*W_{out(1,1)}*h1_{output}*(1-h1_{output})*i1$$ $$ = (0.606-1) * 0.606 *(1-0.606) * 0.4* 0.507*(1-0.507)*0.05 $$ $$ = -0.00047$$
 
+The influence of each of the weights pertaining to a layer can be succintly written as
+Error from that layer * slope of that layer * input associated with that weight element
+
 {% highlight python%}
 #Back Propagation
-delta_output = (Etotal * der_sigmoid(out_layer_output)
+pE= out_layer_output-o # Differentiated w.r.t o1_output
+delta_output = (pE * der_sigmoid(out_layer_output)
 pd_output = delta_output* hidden_layer_output.T
 delta_hidden = delta_output*wout*der_sigmoid(hidden_layer_output)
 pd_hidden = delta_hidden* i.T
 {% endhighlight%}
 
-Learning rate is the rate at which we want the weights to be updated.For our working example 0.5(lr) has been chosen as the learning rate.The weights should be update after calculating the pd_output and pd_hidden since wout value (prior to  updation) is used in calculating pd_hidden.
+Learning rate is the rate at which we want the weights to be updated.For our working example 0.5(lr) has been chosen as the learning rate.The weights should be updated after calculating the error and gradient at every layer since the weight from the next layer have an impact on the values passed to the previous layer.
 
 $$W_{out(1,1)} = W_{out(1,1)}- lr * \partial E/\partial W_{out(1,1)}$$
 
@@ -82,8 +86,11 @@ wout = wout - (lr*pd_output)
 wh = wh - (lr*pd_hidden)
 {% endhighlight%}
 
-The above steps complete an epoch (a complete pass of forward and back propagation).the complete code on network training based on pre-defined epoch is provided in the below link
+The above steps complete an epoch (a complete pass of forward and back propagation)and the weights wh and wout are updated.Multiple iterations will train the weight towards the expected output and will minimise the error.The complete code on network training based on pre-defined epoch is provided in the below link
 
 [Jupyter notebook Link](https://github.com/MashNagesh/NeuralNetwork/blob/master/NN_trial_Single_class.ipynb)
 
+The above blog post is inspired by
+[A Step by Step Backpropagation Example](https://mattmazur.com/2015/03/17/a-step-by-step-backpropagation-example/)
+[Understanding and coding Neural Networks From Scratch in Python and R](https://www.analyticsvidhya.com/blog/2017/05/neural-network-from-scratch-in-python-and-r/)
 
