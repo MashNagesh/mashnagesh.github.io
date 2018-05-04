@@ -91,6 +91,8 @@ The above steps complete an epoch (a complete pass of forward and back propagati
 [Jupyter notebook Link](https://github.com/MashNagesh/NeuralNetwork/blob/master/NN_trial_Single_class.ipynb)
 
 The above blog post is inspired by
+
 [A Step by Step Backpropagation Example](https://mattmazur.com/2015/03/17/a-step-by-step-backpropagation-example/)
+
 [Understanding and coding Neural Networks From Scratch in Python and R](https://www.analyticsvidhya.com/blog/2017/05/neural-network-from-scratch-in-python-and-r/)
 
