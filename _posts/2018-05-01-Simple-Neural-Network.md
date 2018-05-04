@@ -61,6 +61,7 @@ Similarly the influence of Wh(1,1) on the Error is as follows
 $$\partial E/\partial W_{h(1,1)}$$ $$= \partial E / \partial o1_{output} * \partial o1_{output} / \partial o1_{input} * \partial o1_{input} /\partial h1_{output} * \partial h1_{output}/\partial h1_{input} * \partial h1_{input}/\partial w_{h(1,1)} $$ $$=(o1_{output}-o) *o1_{output}*(1-o1_{output})*W_{out(1,1)}*h1_{output}*(1-h1_{output})*i1$$ $$ = (0.606-1) * 0.606 *(1-0.606) * 0.4* 0.507*(1-0.507)*0.05 $$ $$ = -0.00047$$
 
 The influence of each of the weights pertaining to a layer can be succintly written as
+
 Error from that layer * slope of that layer * input associated with that weight element
 
 {% highlight python%}
