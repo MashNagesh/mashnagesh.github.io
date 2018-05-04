@@ -73,7 +73,6 @@ pd_hidden = delta_hidden* i.T
 Learning rate is the rate at which we want the weights to be updated.For our working example 0.5(lr) has been chosen as the learning rate.The weights should be updated after calculating the error and gradient at every layer since the weight from the next layer have an impact on the values passed to the previous layer.
 
 $$W_{out(1,1)} = W_{out(1,1)}- lr * \partial E/\partial W_{out(1,1)}$$
-
 $$=0.4 - (0.5*-0.0476) $$ $$=0.4238 $$
 
 Similarly
