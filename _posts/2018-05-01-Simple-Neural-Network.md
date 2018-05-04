@@ -67,7 +67,7 @@ Error from that layer * slope of that layer * input associated with that weight 
 {% highlight python%}
 #Back Propagation
 pE= out_layer_output-o # Differentiated w.r.t o1_output
-delta_output = (pE * der_sigmoid(out_layer_output)
+delta_output = pE * der_sigmoid(out_layer_output)
 pd_output = delta_output* hidden_layer_output.T
 delta_hidden = delta_output*wout*der_sigmoid(hidden_layer_output)
 pd_hidden = delta_hidden* i.T
